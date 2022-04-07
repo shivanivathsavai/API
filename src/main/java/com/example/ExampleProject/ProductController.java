@@ -5,29 +5,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import java.util.function.UnaryOperator;
 
 @RestController
 public class ProductController {
    List<Product> list =new ArrayList<Product>();
 
+   /*Input details*/
+
   public ProductController()
   {
-      Product p1=new Product(1,"tv",40000);
-      Product p2=new Product(2,"ac",50000);
-      Product p3=new Product(3,"fridge",60000);
-
-      list.add(p1);
-      list.add(p2);
-      list.add(p3);
+      list.add(new Product(1,"tv",40000));
+      list.add(new Product(2,"ac",50000));
+      list.add(new Product(3,"fridge",60000));
 
   }
-  @GetMapping("/details")
+
+  /*Returns list with the details using GET*/
+    
+  @GetMapping("/getdetails")
   public List<Product> getProduct()
   {
       return list;
   }
-    @PostMapping("/add")
-    public Product send(@RequestBody Product details)
+
+  /*Returns details we added using POST */
+
+  @PostMapping("/adddetails")
+  public Product send(@RequestBody Product details)
     {
         list.add(details);
         return details;

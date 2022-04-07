@@ -11,7 +11,7 @@ public class Product {
     {
        this.id=id;
        this.name=name;
-       this.id=price;
+       this.price=price;
     }
 
     public int getId() {
@@ -46,4 +46,5 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
 }
